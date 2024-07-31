@@ -1,5 +1,11 @@
+import MainBanner from "../components/MainBanner";
+
 const Home = () => {
-	return <div>Home</div>;
+	return (
+		<section className="mt-20">
+			<MainBanner />
+		</section>
+	);
 };
 
 export default Home;

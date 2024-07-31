@@ -9,7 +9,7 @@ const NavBar = () => {
 					ens
 				</h1>
 			</div>
-			<div>
+			<div className="hidden lg:block">
 				<SearchBar />
 			</div>
 			<div className="flex gap-4 items-center text-white">
