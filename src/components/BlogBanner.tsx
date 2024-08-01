@@ -15,7 +15,12 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 		<div className="bg-lightblack p-2 rounded-xl lg:p-4">
 			<div className="flex gap-4 lg:flex-col">
 				<div className="flex w-[250px] lg:w-full">
-					<img src={image} alt="" className="rounded-lg" />
+					<img
+						src={image}
+						alt=""
+						className="rounded-lg"
+						loading="lazy"
+					/>
 				</div>
 				<div className="flex flex-col justify-between">
 					<h1 className="text-primary font-bold text-sm ">{title}</h1>

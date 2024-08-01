@@ -14,7 +14,12 @@ const MainBanner: React.FC<IBlogCardProps> = ({
 	return (
 		<div className="flex flex-col gap-4 bg-lightblack rounded-b-xl lg:flex-row">
 			<div>
-				<img src={image} alt={image} className="w-full h-auto" />
+				<img
+					src={image}
+					alt={image}
+					className="w-full h-auto"
+					loading="lazy"
+				/>
 			</div>
 			<div className="flex flex-col justify-between p-4">
 				<div>

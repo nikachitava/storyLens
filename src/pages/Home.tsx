@@ -93,6 +93,171 @@ const Home = () => {
 					author={"Nika Tchitava"}
 					created_at={"18-08-2003"}
 				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
+				<BlogBanner
+					title={"BLOG TITLE"}
+					subtitle={
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
+					}
+					image={
+						"https://cdn.europop.ge/45ae33ff-440e-4e49-8d95-c2b5bf8014ea"
+					}
+					author={"Nika Tchitava"}
+					created_at={"18-08-2003"}
+				/>
 			</div>
 		</section>
 	);
