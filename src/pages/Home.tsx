@@ -5,7 +5,7 @@ const Home = () => {
 	return (
 		<section className="mt-20 py-10">
 			<MainBanner
-				title={"NEWS TITLE"}
+				title={"NEWS TITL"}
 				subtitle={
 					"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
 				}
