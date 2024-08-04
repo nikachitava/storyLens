@@ -1,11 +1,7 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-
-type LoginFormInputs = {
-	email: string;
-	password: string;
-};
+import { LoginFormInputs } from "../Interface/LoginFormInputs";
 
 const LoginFormModal = () => {
 	const {
