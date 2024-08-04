@@ -1,6 +1,8 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "axios";
+import { useState } from "react";
 
 type RegisterFormType = {
 	username: string;
@@ -21,14 +23,32 @@ const RegisterFormModal = () => {
 
 	const watchPassword = watch("password");
 
-	const onSubmit: SubmitHandler<RegisterFormType> = (data) =>
-		console.log(data);
+	const [errorMessage, setErrorMessage] = useState("");
+
+	const onSubmit: SubmitHandler<RegisterFormType> = (data) => {
+		axios
+			.post("http://localhost:3000/user/register", data)
+			.then((response) => {
+				console.log(response.data);
+				window.location.reload();
+			})
+			.catch((error) => {
+				if (error.response && error.response.data) {
+					setErrorMessage(error.response.data.message);
+				} else {
+					setErrorMessage(
+						"An error occurred while processing your request."
+					);
+				}
+			});
+	};
 
 	return (
 		<form
 			className="flex max-w-lg flex-col gap-4 p-8 bg-lightblack lg:w-[500px]"
 			onSubmit={handleSubmit(onSubmit)}
 		>
+			<h1>ERROR: {errorMessage}</h1>
 			<div className="flex justify-between items-center gap-4">
 				<div>
 					<div className="mb-2 block">
