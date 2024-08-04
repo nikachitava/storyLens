@@ -29,8 +29,9 @@ const RegisterFormModal = () => {
 		axios
 			.post("http://localhost:3000/user/register", data)
 			.then((response) => {
-				console.log(response.data);
-				window.location.reload();
+				if (response.status === 200) {
+					window.location.reload();
+				}
 			})
 			.catch((error) => {
 				if (error.response && error.response.data) {
