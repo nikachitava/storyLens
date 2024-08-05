@@ -1,7 +1,9 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { LoginFormInputs } from "../Interface/LoginFormInputs";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const LoginFormModal = () => {
 	const {
@@ -10,8 +12,15 @@ const LoginFormModal = () => {
 		formState: { errors },
 	} = useForm<LoginFormInputs>();
 
-	const onSubmit: SubmitHandler<LoginFormInputs> = (data) =>
-		console.log(data);
+	const { login, errorMessage } = useContext(AuthContext);
+
+	const onSubmit = async (data: LoginFormInputs) => {
+		try {
+			await login(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<form
@@ -19,6 +28,7 @@ const LoginFormModal = () => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<div>
+				<h1>ERROR: {errorMessage}</h1>
 				<div className="mb-2 block">
 					<Label value="Your email" />
 				</div>

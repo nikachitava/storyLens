@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoginFormModal from "./LoginFormModal";
 import Modal from "./Modal";
 import RegisterFormModal from "./RegisterFormModal";
+import { AuthContext } from "../context/authContext";
 
 const NavBar = () => {
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -25,6 +26,8 @@ const NavBar = () => {
 		}
 	}, [isLoginModalOpen, isRegisterModalOpen]);
 
+	const { currentUser, logout } = useContext(AuthContext);
+
 	return (
 		<>
 			<Modal open={isLoginModalOpen} onClose={handleLoginModal}>
@@ -45,14 +48,27 @@ const NavBar = () => {
 				<div className="hidden lg:block">
 					<SearchBar />
 				</div>
-				<div className="flex gap-4 items-center text-white">
-					<p className="cursor-pointer" onClick={handleLoginModal}>
-						Log in
+				{currentUser && (
+					<p className="cursor-pointer text-white" onClick={logout}>
+						Log out
 					</p>
-					<p className="cursor-pointer" onClick={handleRegisterModal}>
-						Register
-					</p>
-				</div>
+				)}
+				{!currentUser && (
+					<div className="flex gap-4 items-center text-white">
+						<p
+							className="cursor-pointer"
+							onClick={handleLoginModal}
+						>
+							Log in
+						</p>
+						<p
+							className="cursor-pointer"
+							onClick={handleRegisterModal}
+						>
+							Register
+						</p>
+					</div>
+				)}
 			</header>
 		</>
 	);

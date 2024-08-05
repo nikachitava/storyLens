@@ -29,10 +29,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const navigate = useNavigate();
 
-	const login = async (inputs: LoginFormInputs) => {
+	const login = async (data: LoginFormInputs) => {
 		try {
 			await axios
-				.post("http://localhost:3000/user/login", inputs, {
+				.post("http://localhost:3000/user/login", data, {
 					withCredentials: true,
 				})
 				.then((response) => {
@@ -48,7 +48,9 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 						);
 					}
 				});
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const logout = async () => {
