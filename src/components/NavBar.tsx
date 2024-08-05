@@ -5,6 +5,7 @@ import LoginFormModal from "./LoginFormModal";
 import Modal from "./Modal";
 import RegisterFormModal from "./RegisterFormModal";
 import { AuthContext } from "../context/authContext";
+import { UserAvatarDropDown } from "./UserAvatarDropDown";
 
 const NavBar = () => {
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -26,7 +27,7 @@ const NavBar = () => {
 		}
 	}, [isLoginModalOpen, isRegisterModalOpen]);
 
-	const { currentUser, logout } = useContext(AuthContext);
+	const { currentUser } = useContext(AuthContext);
 
 	return (
 		<>
@@ -48,11 +49,7 @@ const NavBar = () => {
 				<div className="hidden lg:block">
 					<SearchBar />
 				</div>
-				{currentUser && (
-					<p className="cursor-pointer text-white" onClick={logout}>
-						Log out
-					</p>
-				)}
+				{currentUser && <UserAvatarDropDown />}
 				{!currentUser && (
 					<div className="flex gap-4 items-center text-white">
 						<p
