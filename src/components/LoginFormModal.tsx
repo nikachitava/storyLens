@@ -2,13 +2,15 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { LoginFormInputs } from "../Interface/LoginFormInputs";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/authContext";
 
 const LoginFormModal = () => {
 	const {
 		register,
 		handleSubmit,
+		reset,
+		formState,
 		formState: { errors },
 	} = useForm<LoginFormInputs>();
 
@@ -21,6 +23,12 @@ const LoginFormModal = () => {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		if (formState.isSubmitSuccessful) {
+			reset();
+		}
+	}, [formState, reset]);
 
 	return (
 		<form

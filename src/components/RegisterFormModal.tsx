@@ -2,7 +2,7 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type RegisterFormType = {
 	username: string;
@@ -18,6 +18,8 @@ const RegisterFormModal = () => {
 		register,
 		handleSubmit,
 		watch,
+		reset,
+		formState,
 		formState: { errors },
 	} = useForm<RegisterFormType>();
 
@@ -43,6 +45,12 @@ const RegisterFormModal = () => {
 				}
 			});
 	};
+
+	useEffect(() => {
+		if (formState.isSubmitSuccessful) {
+			reset();
+		}
+	}, [formState, reset]);
 
 	return (
 		<form

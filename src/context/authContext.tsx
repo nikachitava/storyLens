@@ -1,8 +1,15 @@
-import { useState, createContext, useEffect, ReactNode } from "react";
+import {
+	useState,
+	createContext,
+	useEffect,
+	ReactNode,
+	useContext,
+} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LoginFormInputs } from "../Interface/LoginFormInputs";
 import { IUser } from "../Interface/IUser";
+import { ModalContext } from "./ModalContext";
 
 interface AuthContextType {
 	currentUser: IUser | null;
@@ -29,6 +36,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const navigate = useNavigate();
 
+	const { handleLoginModal } = useContext(ModalContext);
+
 	const login = async (data: LoginFormInputs) => {
 		try {
 			await axios
@@ -37,6 +46,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 				})
 				.then((response) => {
 					setCurrentUser(response.data);
+					setErrorMessage("");
+					handleLoginModal();
 					navigate("/");
 				})
 				.catch((error) => {
