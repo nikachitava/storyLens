@@ -7,6 +7,7 @@ import Root from "./pages/Root.tsx";
 import Home from "./pages/Home.tsx";
 import { AuthContextProvider } from "./context/authContext.tsx";
 import { ModalContextProvider } from "./context/ModalContext.tsx";
+import Profile from "./pages/Profile.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 					<Routes>
 						<Route path="/" element={<Root />}>
 							<Route index element={<Home />} />
+							<Route path="profile" element={<Profile />} />
 						</Route>
 					</Routes>
 				</AuthContextProvider>
