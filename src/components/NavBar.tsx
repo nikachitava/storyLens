@@ -1,31 +1,20 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import LoginFormModal from "./LoginFormModal";
 import Modal from "./Modal";
 import RegisterFormModal from "./RegisterFormModal";
 import { AuthContext } from "../context/authContext";
 import { UserAvatarDropDown } from "./UserAvatarDropDown";
+import { ModalContext } from "../context/ModalContext";
 
 const NavBar = () => {
-	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-
-	const handleLoginModal = () => {
-		setIsLoginModalOpen((isLoginModalOpen) => !isLoginModalOpen);
-	};
-
-	const handleRegisterModal = () => {
-		setIsRegisterModalOpen((isRegisterModalOpen) => !isRegisterModalOpen);
-	};
-
-	useEffect(() => {
-		if (isLoginModalOpen || isRegisterModalOpen) {
-			document.body.classList.add("no-scroll");
-		} else {
-			document.body.classList.remove("no-scroll");
-		}
-	}, [isLoginModalOpen, isRegisterModalOpen]);
+	const {
+		isLoginModalOpen,
+		isRegisterModalOpen,
+		handleLoginModal,
+		handleRegisterModal,
+	} = useContext(ModalContext);
 
 	const { currentUser } = useContext(AuthContext);
 

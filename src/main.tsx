@@ -6,17 +6,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Root from "./pages/Root.tsx";
 import Home from "./pages/Home.tsx";
 import { AuthContextProvider } from "./context/authContext.tsx";
+import { ModalContextProvider } from "./context/ModalContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<Router>
-			<AuthContextProvider>
-				<Routes>
-					<Route path="/" element={<Root />}>
-						<Route index element={<Home />} />
-					</Route>
-				</Routes>
-			</AuthContextProvider>
+			<ModalContextProvider>
+				<AuthContextProvider>
+					<Routes>
+						<Route path="/" element={<Root />}>
+							<Route index element={<Home />} />
+						</Route>
+					</Routes>
+				</AuthContextProvider>
+			</ModalContextProvider>
 		</Router>
 	</React.StrictMode>
 );

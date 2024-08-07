@@ -49,7 +49,6 @@ const RegisterFormModal = () => {
 			className="flex max-w-lg flex-col gap-4 p-8 bg-lightblack lg:w-[500px]"
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<h1>ERROR: {errorMessage}</h1>
 			<div className="flex justify-between items-center gap-4">
 				<div>
 					<div className="mb-2 block">
@@ -242,6 +241,7 @@ const RegisterFormModal = () => {
 					</Link>
 				</Label>
 			</div>
+			<h1 className="text-red-500">{errorMessage}</h1>
 			<Button type="submit">Register new account</Button>
 		</form>
 	);

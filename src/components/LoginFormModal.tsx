@@ -28,7 +28,6 @@ const LoginFormModal = () => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<div>
-				<h1>ERROR: {errorMessage}</h1>
 				<div className="mb-2 block">
 					<Label value="Your email" />
 				</div>
@@ -92,6 +91,7 @@ const LoginFormModal = () => {
 					</Link>
 				</Label>
 			</div>
+			<h1 className="text-red-500">{errorMessage}</h1>
 			<Button type="submit">LOGIN</Button>
 		</form>
 	);
