@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogBanner from "../components/BlogBanner";
 import axios from "axios";
-
-interface IPosts {
-	postID: number;
-	userID: number;
-	title: string;
-	content: string;
-	created_at: string;
-	updated_at: string;
-	coverImage: string;
-	author: string;
-}
+import { IPosts } from "../Interface/IPosts";
 
 const PostsSection = () => {
 	const [posts, setPost] = useState<IPosts[]>();
@@ -27,7 +17,6 @@ const PostsSection = () => {
 
 	useEffect(() => {
 		fetchPosts();
-		console.log(posts);
 	}, []);
 
 	return (
