@@ -21,16 +21,22 @@ const PostsSection = () => {
 
 	return (
 		<>
-			{posts?.map((post) => (
-				<BlogBanner
-					key={post.postID}
-					title={post.title}
-					subtitle={post.content}
-					image={`http://localhost:3000/images/${post.coverImage}`}
-					author={post.author}
-					created_at={post.created_at}
-				/>
-			))}
+			{posts ? (
+				posts.map((post) => (
+					<BlogBanner
+						key={post.postID}
+						title={post.title}
+						subtitle={post.content}
+						image={`http://localhost:3000/images/${post.coverImage}`}
+						author={post.author}
+						created_at={post.created_at}
+					/>
+				))
+			) : (
+				<h1 className="text-2xl text-white font-bold">
+					There is no blogs founded
+				</h1>
+			)}
 		</>
 	);
 };
