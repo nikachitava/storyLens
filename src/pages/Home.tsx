@@ -2,7 +2,7 @@ import { useContext } from "react";
 import MainBanner from "../components/MainBanner";
 import { AuthContext } from "../context/authContext";
 import Header from "../components/Header";
-import PostsSection from "../section/PostsSection";
+import PostsSection from "../sections/PostsSection";
 
 const Home = () => {
 	const { currentUser } = useContext(AuthContext);
