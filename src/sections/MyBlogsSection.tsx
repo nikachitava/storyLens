@@ -24,6 +24,23 @@ const MyBlogsSection = () => {
 	useEffect(() => {
 		fetchPosts();
 	}, [userID]);
+
+	const onClickDelete = async (postID: number) => {
+		try {
+			const response = await axios.delete(
+				`http://localhost:3000/posts/deletepost/${postID}`
+			);
+			fetchPosts();
+			console.log(response.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const onClickEdit = (postID: number) => {
+		console.log("clicked for delete ID:", postID);
+	};
+
 	return (
 		<div className="grid gap-4 justify-center lg:grid-cols-3">
 			{myBlogs?.length != 0 ? (
@@ -35,6 +52,8 @@ const MyBlogsSection = () => {
 						image={`http://localhost:3000/images/${post.coverImage}`}
 						author={post.author}
 						created_at={post.created_at}
+						onClickEdit={() => onClickEdit(post.postID)}
+						onClickDelete={() => onClickDelete(post.postID)}
 					/>
 				))
 			) : (

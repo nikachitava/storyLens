@@ -4,4 +4,6 @@ export interface IBlogCardProps {
 	image: string;
 	author: string;
 	created_at: string;
+	onClickEdit?: ()=> void;
+	onClickDelete?: ()=> void;
 }

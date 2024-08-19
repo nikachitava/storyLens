@@ -18,7 +18,7 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 					<img
 						src={image}
 						alt=""
-						className="rounded-lg"
+						className="rounded-lg w-full h-[250px]"
 						loading="lazy"
 					/>
 				</div>

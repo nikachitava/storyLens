@@ -8,6 +8,8 @@ const MyBlogCard: React.FC<IBlogCardProps> = ({
 	image,
 	author,
 	created_at,
+	onClickEdit,
+	onClickDelete,
 }) => {
 	return (
 		<div className="max-w-lg bg-lightblack p-4">
@@ -18,7 +20,13 @@ const MyBlogCard: React.FC<IBlogCardProps> = ({
 			/>
 			<div className="my-4">
 				<h1 className="text-primary font-bold text-lg">{title}</h1>
-				<p className="text-secondary text-sm">{subtitle}</p>
+				<p className="text-secondary text-sm">
+					{subtitle.substring(0, 20)}
+					<span className="underline ml-2 font-bold">
+						{" "}
+						...READ MORE
+					</span>
+				</p>
 			</div>
 			<hr className="my-4" />
 			<div className="flex justify-between items-center mt-4">
@@ -29,8 +37,16 @@ const MyBlogCard: React.FC<IBlogCardProps> = ({
 					</p>
 				</div>
 				<div className="flex gap-4">
-					<CiEdit color="white" />
-					<RiDeleteBin6Fill color="white" />
+					<CiEdit
+						color="white"
+						className="cursor-pointer"
+						onClick={onClickEdit}
+					/>
+					<RiDeleteBin6Fill
+						color="white"
+						className="cursor-pointer"
+						onClick={onClickDelete}
+					/>
 				</div>
 			</div>
 		</div>
