@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { IPosts } from "../Interface/IPosts";
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Oval } from "react-loader-spinner";
 
 type EditPostFormInputs = {
 	title: string;
@@ -37,15 +38,20 @@ const MyPost = () => {
 		formState: { errors },
 	} = useForm<EditPostFormInputs>({});
 
+	const navigate = useNavigate();
+
 	const onSubmit: SubmitHandler<EditPostFormInputs> = async (data) => {
+		setIsLoading(true);
 		try {
-			const resposne = await axios.patch(
+			await axios.patch(
 				`http://localhost:3000/posts/mypost/edit/${postID}`,
 				data
 			);
-			console.log(resposne.data);
 		} catch (error) {
 			console.log(error);
+		} finally {
+			setIsLoading(false);
+			navigate("/profile");
 		}
 	};
 
@@ -66,6 +72,8 @@ const MyPost = () => {
 			return true;
 		}
 	};
+
+	const [isLoading, setIsLoading] = useState(false);
 
 	return (
 		<>
@@ -145,7 +153,19 @@ const MyPost = () => {
 							/>
 						</div>
 						<Button type="submit" disabled={checkIfBlogEdit()}>
-							Edit
+							{isLoading ? (
+								<Oval
+									visible={true}
+									height="20"
+									width="20"
+									color="#ff0000"
+									ariaLabel="oval-loading"
+									wrapperStyle={{}}
+									wrapperClass=""
+								/>
+							) : (
+								"Edit"
+							)}
 						</Button>
 					</div>
 				</form>
