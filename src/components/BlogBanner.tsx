@@ -3,6 +3,7 @@ import { AiFillDislike } from "react-icons/ai";
 import { FaCommentDots } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
 import { IBlogCardProps } from "../Interface/IBlogCardProps";
+import "animate.css";
 
 const BlogBanner: React.FC<IBlogCardProps> = ({
 	title,
@@ -12,7 +13,7 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 	created_at,
 }) => {
 	return (
-		<div className="bg-lightblack p-2 rounded-xl lg:p-4">
+		<div className="bg-lightblack p-2 rounded-xl lg:p-4 animate__animated animate__fadeIn">
 			<div className="flex gap-4 lg:flex-col">
 				<div className="flex w-[250px] lg:w-full">
 					<img

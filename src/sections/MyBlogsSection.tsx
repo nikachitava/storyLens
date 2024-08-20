@@ -4,6 +4,7 @@ import { AuthContext } from "../context/authContext";
 import axios from "axios";
 import MyBlogCard from "../components/MyBlogCard";
 import { useNavigate } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
 
 const MyBlogsSection = () => {
 	const [myBlogs, setMyBlogs] = useState<IPosts[]>();
@@ -24,6 +25,9 @@ const MyBlogsSection = () => {
 
 	useEffect(() => {
 		fetchPosts();
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
 	}, [userID]);
 
 	const onClickDelete = async (postID: number) => {
@@ -44,25 +48,45 @@ const MyBlogsSection = () => {
 		navigate(`/mypost/${postID}`);
 	};
 
+	const [isLoading, setIsLoading] = useState(true);
+
 	return (
-		<div className="grid gap-4 justify-center lg:grid-cols-3">
-			{myBlogs?.length != 0 ? (
-				myBlogs?.map((post) => (
-					<MyBlogCard
-						key={post.postID}
-						title={post.title}
-						subtitle={post.content}
-						image={`http://localhost:3000/images/${post.coverImage}`}
-						author={post.author}
-						created_at={post.created_at}
-						onClickEdit={() => onClickEdit(post.postID)}
-						onClickDelete={() => onClickDelete(post.postID)}
+		<>
+			{isLoading ? (
+				<div className="flex justify-center items-center">
+					<Oval
+						visible={true}
+						height="80"
+						width="80"
+						color="#ff0000"
+						ariaLabel="oval-loading"
+						wrapperStyle={{}}
+						wrapperClass=""
 					/>
-				))
+				</div>
 			) : (
-				<h1 className="text-white">You dont have any blogs yet. </h1>
+				<div className="grid gap-4 justify-center lg:grid-cols-3">
+					{myBlogs?.length != 0 ? (
+						myBlogs?.map((post) => (
+							<MyBlogCard
+								key={post.postID}
+								title={post.title}
+								subtitle={post.content}
+								image={`http://localhost:3000/images/${post.coverImage}`}
+								author={post.author}
+								created_at={post.created_at}
+								onClickEdit={() => onClickEdit(post.postID)}
+								onClickDelete={() => onClickDelete(post.postID)}
+							/>
+						))
+					) : (
+						<h1 className="text-white">
+							You dont have any blogs yet.{" "}
+						</h1>
+					)}
+				</div>
 			)}
-		</div>
+		</>
 	);
 };
 

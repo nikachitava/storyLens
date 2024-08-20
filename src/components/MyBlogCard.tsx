@@ -1,6 +1,7 @@
 import { IBlogCardProps } from "../Interface/IBlogCardProps";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import "animate.css";
 
 const MyBlogCard: React.FC<IBlogCardProps> = ({
 	title,
@@ -12,7 +13,7 @@ const MyBlogCard: React.FC<IBlogCardProps> = ({
 	onClickDelete,
 }) => {
 	return (
-		<div className="max-w-lg bg-lightblack p-4">
+		<div className="max-w-lg bg-lightblack p-4 animate__animated animate__zoomIn">
 			<img
 				src={image}
 				alt={image}
