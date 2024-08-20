@@ -8,6 +8,7 @@ import Home from "./pages/Home.tsx";
 import { AuthContextProvider } from "./context/authContext.tsx";
 import { ModalContextProvider } from "./context/ModalContext.tsx";
 import Profile from "./pages/Profile.tsx";
+import MyPost from "./pages/MyPost.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 						<Route path="/" element={<Root />}>
 							<Route index element={<Home />} />
 							<Route path="profile" element={<Profile />} />
+							<Route path="mypost/:postID" element={<MyPost />} />
 						</Route>
 					</Routes>
 				</AuthContextProvider>

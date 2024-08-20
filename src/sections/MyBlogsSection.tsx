@@ -3,6 +3,7 @@ import { IPosts } from "../Interface/IPosts";
 import { AuthContext } from "../context/authContext";
 import axios from "axios";
 import MyBlogCard from "../components/MyBlogCard";
+import { useNavigate } from "react-router-dom";
 
 const MyBlogsSection = () => {
 	const [myBlogs, setMyBlogs] = useState<IPosts[]>();
@@ -37,8 +38,10 @@ const MyBlogsSection = () => {
 		}
 	};
 
+	const navigate = useNavigate();
+
 	const onClickEdit = (postID: number) => {
-		console.log("clicked for delete ID:", postID);
+		navigate(`/mypost/${postID}`);
 	};
 
 	return (
