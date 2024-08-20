@@ -37,8 +37,17 @@ const MyPost = () => {
 		formState: { errors },
 	} = useForm<EditPostFormInputs>({});
 
-	const onSubmit: SubmitHandler<EditPostFormInputs> = (data) =>
-		console.log(data);
+	const onSubmit: SubmitHandler<EditPostFormInputs> = async (data) => {
+		try {
+			const resposne = await axios.patch(
+				`http://localhost:3000/posts/mypost/edit/${postID}`,
+				data
+			);
+			console.log(resposne.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const watchTitle = watch("title");
 	const watchContent = watch("content");
