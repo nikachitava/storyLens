@@ -13,7 +13,7 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 	created_at,
 }) => {
 	return (
-		<div className="bg-lightblack p-2 rounded-xl lg:p-4 animate__animated animate__fadeIn">
+		<div className="bg-lightblack p-2 rounded-xl lg:p-4 animate__animated animate__fadeIn ">
 			<div className="flex gap-4 lg:flex-col">
 				<div className="flex w-[250px] lg:w-full">
 					<img
