@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { IPosts } from "../Interface/IPosts";
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Oval } from "react-loader-spinner";
+import { AuthContext } from "../context/authContext";
+import PageNotFound from "../components/PageNotFound";
 
 type EditPostFormInputs = {
 	title: string;
@@ -74,10 +76,13 @@ const MyPost = () => {
 	};
 
 	const [isLoading, setIsLoading] = useState(false);
+	const { currentUser } = useContext(AuthContext);
+
+	const isMyPost = myBlog && currentUser?.userID == myBlog[0].userID;
 
 	return (
 		<>
-			{myBlog && (
+			{myBlog && isMyPost ? (
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					className="flex gap-4 my-10"
@@ -169,6 +174,8 @@ const MyPost = () => {
 						</Button>
 					</div>
 				</form>
+			) : (
+				<PageNotFound />
 			)}
 		</>
 	);
