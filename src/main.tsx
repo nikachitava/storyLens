@@ -9,6 +9,8 @@ import { AuthContextProvider } from "./context/authContext.tsx";
 import { ModalContextProvider } from "./context/ModalContext.tsx";
 import Profile from "./pages/Profile.tsx";
 import MyPost from "./pages/MyPost.tsx";
+import PageNotFound from "./components/PageNotFound.tsx";
+import ProtectedRoute from "./utils/ProtectedRoute.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
@@ -19,7 +21,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 						<Route path="/" element={<Root />}>
 							<Route index element={<Home />} />
 							<Route path="profile" element={<Profile />} />
-							<Route path="mypost/:postID" element={<MyPost />} />
+							<Route
+								path="mypost/:postID"
+								element={<ProtectedRoute element={MyPost} />}
+							/>
+							<Route path="*" element={<PageNotFound />} />
 						</Route>
 					</Routes>
 				</AuthContextProvider>
