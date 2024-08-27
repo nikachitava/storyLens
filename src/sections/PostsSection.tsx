@@ -25,6 +25,7 @@ const PostsSection = () => {
 				posts.map((post) => (
 					<BlogBanner
 						key={post.postID}
+						postID={post.postID}
 						title={post.title}
 						subtitle={post.content}
 						image={`http://localhost:3000/images/${post.coverImage}`}
