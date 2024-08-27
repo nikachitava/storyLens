@@ -11,6 +11,7 @@ import Profile from "./pages/Profile.tsx";
 import MyPost from "./pages/MyPost.tsx";
 import PageNotFound from "./components/PageNotFound.tsx";
 import ProtectedRoute from "./utils/ProtectedRoute.tsx";
+import ReadPost from "./pages/ReadPost.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 								path="mypost/:postID"
 								element={<ProtectedRoute element={MyPost} />}
 							/>
+							<Route path="post/:postID" element={<ReadPost />} />
 							<Route path="*" element={<PageNotFound />} />
 						</Route>
 					</Routes>
