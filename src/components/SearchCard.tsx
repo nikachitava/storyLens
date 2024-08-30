@@ -15,12 +15,14 @@ const SearchCard: React.FC<IBlogCardProps> = ({
 				<img
 					src={`http://localhost:3000/images/${image}`}
 					alt=""
-					className="w-[200px]"
+					className="w-[200px] h-[150px]"
 				/>
 				<div className="flex flex-col justify-between">
 					<div>
 						<h1 className="text-primary font-bold">{title}</h1>
-						<p className="text-secondary">{subtitle}</p>
+						<p className="text-secondary">
+							{subtitle.substring(0, 50)}....
+						</p>
 					</div>
 					<div>
 						<p className="text-secondary text-sm">{author}</p>
