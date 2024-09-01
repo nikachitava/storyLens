@@ -13,15 +13,13 @@ const MainBanner: React.FC<IBlogCardProps> = ({
 }) => {
 	return (
 		<div className="flex flex-col gap-4 bg-lightblack rounded-b-xl lg:flex-row">
-			<div>
-				<img
-					src={image}
-					alt={image}
-					className="w-full h-auto"
-					loading="lazy"
-				/>
-			</div>
-			<div className="flex flex-col justify-between p-4">
+			<img
+				src={image}
+				alt={image}
+				className="w-[60%] max-h-[600px]"
+				loading="lazy"
+			/>
+			<div className="flex flex-col justify-between p-4 ">
 				<div>
 					<h1 className="text-primary font-bold">{title}</h1>
 					<p className="text-secondary mt-4">{subtitle}</p>

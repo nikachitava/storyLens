@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import MainBanner from "../components/MainBanner";
 import { AuthContext } from "../context/authContext";
 import Header from "../components/Header";
 import PostsSection from "../sections/PostsSection";
+import MainBlogSection from "../sections/MainBlogSection";
 
 const Home = () => {
 	const { currentUser } = useContext(AuthContext);
@@ -12,17 +12,7 @@ const Home = () => {
 			<div className="mb-10">
 				<Header title={"TODAYS MAIN BLOG"} />
 			</div>
-			<MainBanner
-				title={"NEWS TITL"}
-				subtitle={
-					"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ipsam magnam odit at maiores aut dolorem iste exercitationem pariatur, enim, adipisci molestias! Culpa ratione neque rerum commodi quidem corporis eos?"
-				}
-				image={
-					"https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ngdjbafv3twathukjbq2"
-				}
-				author={"ISHOWSPEED"}
-				created_at={"18-10-2003"}
-			/>
+			<MainBlogSection />
 			{currentUser ? (
 				<>
 					<div className="mt-20">
