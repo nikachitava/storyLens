@@ -8,6 +8,14 @@ import { TextInput } from "flowbite-react";
 import { LuSendHorizonal } from "react-icons/lu";
 import CommentCart from "../components/CommentCart";
 import SimilarPostCard from "../components/SimilarPostCard";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import moment from "moment";
+
+interface INewComment {
+	comment: string;
+	postID: string;
+	userID: number;
+}
 
 const ReadPost = () => {
 	const [blog, setBlog] = useState<IPosts[]>();
@@ -34,6 +42,40 @@ const ReadPost = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const { currentUser } = useContext(AuthContext);
 
+	const [comment, setComment] = useState("");
+
+	const { data, error } = useQuery({
+		queryKey: ["comments"],
+		queryFn: async () => {
+			const response = await axios.get(
+				"http://localhost:3000/comments?postID=" + postID
+			);
+			return response.data;
+		},
+	});
+
+	const queryClient = useQueryClient();
+
+	const mutationKey = ["comments"];
+
+	const mutation = useMutation({
+		mutationKey,
+		mutationFn: (newComment: INewComment) => {
+			return axios.post("http://localhost:3000/comments", newComment);
+		},
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ["comments"] });
+		},
+	});
+
+	const handleClick = async (e: any) => {
+		e.preventDefault();
+		if (comment && postID && currentUser?.userID) {
+			mutation.mutate({ comment, postID, userID: currentUser?.userID });
+			setComment("");
+		}
+	};
+
 	return (
 		<div className="my-10">
 			{isLoading ? (
@@ -50,8 +92,8 @@ const ReadPost = () => {
 				</div>
 			) : currentUser ? (
 				blog && (
-					<div className="flex gap-16">
-						<div className="w-[70%] flex flex-col gap-6">
+					<div className="flex gap-16 justify-center">
+						<div className="lg:w-[70%] flex flex-col gap-6">
 							<img
 								src={`http://localhost:3000/images/${blog[0].coverImage}`}
 								alt=""
@@ -65,32 +107,53 @@ const ReadPost = () => {
 							<div>
 								<div className="bg-lightblack p-8 flex flex-col gap-4">
 									<h1 className="text-white font-bold text-2xl">
-										0 Comments
+										{data.length} Comments
 									</h1>
 									<div className="flex flex-col gap-8">
-										<CommentCart />
-										<CommentCart />
-										<CommentCart />
-										<CommentCart />
-										<CommentCart />
-										<CommentCart />
+										{error
+											? "Something went wrong"
+											: isLoading
+											? "loading"
+											: data.map(
+													(
+														comment: any,
+														index: number
+													) => (
+														<CommentCart
+															key={index}
+															image={
+																"https://fastly.picsum.photos/id/869/500/500.jpg?hmac=33L-Aq-Oi1OdqudA1Sk5DIiYBrjdwxb3TJ7xgoJRlyo"
+															}
+															name={comment.name}
+															desc={comment.desc}
+															created_at={moment(
+																comment.createdAt
+															).fromNow()}
+														/>
+													)
+											  )}
 									</div>
 									<hr />
 									<div className="flex gap-6 items-center mt-4 ">
 										<TextInput
 											placeholder={"Leave your comment"}
 											className="w-full"
+											value={comment}
+											onChange={(e) =>
+												setComment(e.target.value)
+											}
 										/>
 										<LuSendHorizonal
 											size={24}
 											color="white"
 											className="cursor-pointer"
+											onClick={handleClick}
 										/>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div className="flex-1 w-full bg-lightblack rounded-xl flex flex-col gap-2 p-2 max-h-[500px] overflow-auto">
+						<div className="hidden flex-1 w-full bg-lightblack rounded-xl lg:flex flex-col gap-2 p-2 max-h-[500px] overflow-auto">
 							<SimilarPostCard />
 							<SimilarPostCard />
 							<SimilarPostCard />
