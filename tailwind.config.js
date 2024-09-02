@@ -13,15 +13,20 @@ export default {
             'darkblack': '#0D0E0F',
             'lightblack': '#131415',
             'primary': '#F15A22',
-            'secondary': '#D2CFBB'
+            'secondary': '#D2CFBB',
+            'greytext': '#C6D2D2'
         },
         fontFamily: {
           roboto: ['Roboto', 'sans-serif'],
           sans: ['Montserrat', 'sans-serif']
         },
+        scrollBar: {
+          DEFAULT: 'orange', 
+          hover: '#e69500',
+        }
     },
   },
-  plugins: [ flowbite.plugin()],
+  plugins: [ flowbite.plugin(), require('tailwind-scrollbar'),],
   darkMode: 'selector',
 }
 

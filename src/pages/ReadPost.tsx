@@ -7,6 +7,7 @@ import { AuthContext } from "../context/authContext";
 import { TextInput } from "flowbite-react";
 import { LuSendHorizonal } from "react-icons/lu";
 import CommentCart from "../components/CommentCart";
+import SimilarPostCard from "../components/SimilarPostCard";
 
 const ReadPost = () => {
 	const [blog, setBlog] = useState<IPosts[]>();
@@ -70,6 +71,10 @@ const ReadPost = () => {
 									<div className="flex flex-col gap-8">
 										<CommentCart />
 										<CommentCart />
+										<CommentCart />
+										<CommentCart />
+										<CommentCart />
+										<CommentCart />
 									</div>
 									<hr />
 									<div className="flex gap-6 items-center mt-4 ">
@@ -86,8 +91,19 @@ const ReadPost = () => {
 								</div>
 							</div>
 						</div>
-						<div className="flex-1 w-full bg-lightblack rounded-xl">
-							<h1>similar posts</h1>
+						<div className="flex-1 w-full bg-lightblack rounded-xl flex flex-col gap-2 p-2 max-h-[500px] overflow-auto">
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
+							<SimilarPostCard />
 						</div>
 					</div>
 				)
