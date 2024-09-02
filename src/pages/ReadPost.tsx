@@ -55,7 +55,6 @@ const ReadPost = () => {
 							<img
 								src={`http://localhost:3000/images/${blog[0].coverImage}`}
 								alt=""
-								className=""
 							/>
 							<div>
 								<h1 className="text-primary text-2xl font-sans text-left">
