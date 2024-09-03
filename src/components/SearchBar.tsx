@@ -27,7 +27,6 @@ const SearchBar = () => {
 		setSearch("");
 	};
 
-	console.log(search);
 	return (
 		<div className="w-[500px] relative">
 			<div className="relative">
