@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { IPosts } from "../Interface/IPosts";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import { AuthContext } from "../context/authContext";
 import { TextInput } from "flowbite-react";
@@ -19,6 +19,16 @@ interface INewComment {
 
 const ReadPost = () => {
 	const [blog, setBlog] = useState<IPosts[]>();
+	const [similarPosts, setSimilarPosts] = useState<IPosts[]>();
+
+	const fetchSimilarPosts = async () => {
+		try {
+			const response = await axios.get("http://localhost:3000/posts");
+			setSimilarPosts(response.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	const { postID } = useParams();
 
@@ -37,6 +47,7 @@ const ReadPost = () => {
 
 	useEffect(() => {
 		fetchPosts();
+		fetchSimilarPosts();
 	}, [postID]);
 
 	const [isLoading, setIsLoading] = useState(true);
@@ -154,18 +165,19 @@ const ReadPost = () => {
 							</div>
 						</div>
 						<div className="hidden flex-1 w-full bg-lightblack rounded-xl lg:flex flex-col gap-2 p-2 max-h-[500px] overflow-auto">
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
-							<SimilarPostCard />
+							{similarPosts &&
+								similarPosts.map((similarpost) => (
+									<Link to={`/post/${similarpost.postID}`}>
+										<SimilarPostCard
+											key={similarpost.postID}
+											title={similarpost.title}
+											created_at={moment(
+												similarpost.created_at
+											).fromNow()}
+											author={similarpost.author}
+										/>
+									</Link>
+								))}
 						</div>
 					</div>
 				)

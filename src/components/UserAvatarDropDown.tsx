@@ -57,13 +57,7 @@ export const UserAvatarDropDown: React.FC = () => {
 								</p>
 							</Link>
 						</li>
-						<Link to={"/settings"}>
-							<li>
-								<p className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-									Settings
-								</p>
-							</li>
-						</Link>
+
 						<li onClick={handleLogOut}>
 							<p className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer">
 								Log Out
