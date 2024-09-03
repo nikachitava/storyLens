@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { IPosts } from "../Interface/IPosts";
 import { AuthContext } from "../context/authContext";
-import axios from "axios";
 import MyBlogCard from "../components/MyBlogCard";
 import { useNavigate } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
+import { makeRequest } from "../utils/axios";
 
 const MyBlogsSection = () => {
 	const [myBlogs, setMyBlogs] = useState<IPosts[]>();
@@ -14,9 +14,7 @@ const MyBlogsSection = () => {
 
 	const fetchPosts = async () => {
 		try {
-			const response = await axios.get(
-				`http://localhost:3000/posts/myposts/${userID}`
-			);
+			const response = await makeRequest.get(`posts/myposts/${userID}`);
 			setMyBlogs(response.data);
 		} catch (err) {
 			console.log(err);
@@ -32,8 +30,8 @@ const MyBlogsSection = () => {
 
 	const onClickDelete = async (postID: number) => {
 		try {
-			const response = await axios.delete(
-				`http://localhost:3000/posts/deletepost/${postID}`
+			const response = await makeRequest.delete(
+				`posts/deletepost/${postID}`
 			);
 			fetchPosts();
 			console.log(response.data);

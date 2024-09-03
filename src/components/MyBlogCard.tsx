@@ -22,7 +22,7 @@ const MyBlogCard: React.FC<IBlogCardProps> = ({
 			<div className="my-4">
 				<h1 className="text-primary font-bold text-lg">{title}</h1>
 				<p className="text-secondary text-sm">
-					{subtitle.substring(0, 20)}
+					{subtitle?.substring(0, 20)}
 					<span className="underline ml-2 font-bold">
 						{" "}
 						...READ MORE

@@ -7,4 +7,5 @@ export interface IPosts {
 	updated_at?: string;
 	coverImage?: string;
 	author: string;
+	
 }

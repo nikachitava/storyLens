@@ -1,8 +1,8 @@
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { IPosts } from "../Interface/IPosts.ts";
 import SearchCard from "./SearchCard.tsx";
+import { makeRequest } from "../utils/axios.ts";
 
 const SearchBar = () => {
 	const [blogs, setBlogs] = useState<IPosts[]>();
@@ -14,8 +14,8 @@ const SearchBar = () => {
 
 	useEffect(() => {
 		try {
-			axios
-				.get("http://localhost:3000/posts")
+			makeRequest
+				.get("posts")
 				.then((response) => setBlogs(response.data))
 				.catch((e) => console.log(e));
 		} catch (error) {

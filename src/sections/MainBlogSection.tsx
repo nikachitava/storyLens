@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MainBanner from "../components/MainBanner";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { makeRequest } from "../utils/axios";
 
 interface IMainBlog {
 	postID?: number;
@@ -19,9 +19,8 @@ const MainBlogSection = () => {
 
 	const getMainBlog = async () => {
 		try {
-			const response = await axios.get(
-				"http://localhost:3000/posts/getmainblog"
-			);
+			const response = await makeRequest.get("posts/getmainblog");
+
 			setMainBlog(response.data);
 		} catch (error) {
 			console.log(error);

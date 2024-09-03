@@ -2,7 +2,7 @@ import { TextInput, Button, Textarea, FileInput, Label } from "flowbite-react";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AuthContext } from "../context/authContext";
-import axios from "axios";
+import { makeRequest } from "../utils/axios";
 
 type CreateBlogInputs = {
 	title: string;
@@ -31,8 +31,8 @@ const CreateBlogSection = () => {
 				formData.append("coverImage", data.coverImage[0]);
 			}
 
-			const response = await axios.post(
-				"http://localhost:3000/posts/addnewblog",
+			const response = await makeRequest.post(
+				"posts/addnewblog",
 				formData,
 				{
 					headers: {

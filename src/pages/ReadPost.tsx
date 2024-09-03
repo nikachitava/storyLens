@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { IPosts } from "../Interface/IPosts";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import { AuthContext } from "../context/authContext";
@@ -10,6 +9,7 @@ import CommentCart from "../components/CommentCart";
 import SimilarPostCard from "../components/SimilarPostCard";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import moment from "moment";
+import { makeRequest } from "../utils/axios";
 
 interface INewComment {
 	comment: string;
@@ -23,7 +23,7 @@ const ReadPost = () => {
 
 	const fetchSimilarPosts = async () => {
 		try {
-			const response = await axios.get("http://localhost:3000/posts");
+			const response = await makeRequest.get("posts");
 			setSimilarPosts(response.data);
 		} catch (err) {
 			console.log(err);
@@ -34,9 +34,7 @@ const ReadPost = () => {
 
 	const fetchPosts = async () => {
 		try {
-			const response = await axios.get(
-				`http://localhost:3000/posts/mypost/${postID}`
-			);
+			const response = await makeRequest.get(`posts/mypost/${postID}`);
 			setBlog(response.data);
 		} catch (err) {
 			console.log(err);
@@ -58,9 +56,7 @@ const ReadPost = () => {
 	const { data, error } = useQuery({
 		queryKey: ["comments"],
 		queryFn: async () => {
-			const response = await axios.get(
-				"http://localhost:3000/comments?postID=" + postID
-			);
+			const response = await makeRequest.get("comments?postID=" + postID);
 			return response.data;
 		},
 	});
@@ -72,7 +68,7 @@ const ReadPost = () => {
 	const mutation = useMutation({
 		mutationKey,
 		mutationFn: (newComment: INewComment) => {
-			return axios.post("http://localhost:3000/comments", newComment);
+			return makeRequest.post("comments", newComment);
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ["comments"] });

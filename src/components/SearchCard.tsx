@@ -21,7 +21,7 @@ const SearchCard: React.FC<IBlogCardProps> = ({
 					<div>
 						<h1 className="text-primary font-bold">{title}</h1>
 						<p className="text-secondary">
-							{subtitle.substring(0, 50)}....
+							{subtitle?.substring(0, 50)}....
 						</p>
 					</div>
 					<div>

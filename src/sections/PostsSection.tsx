@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import BlogBanner from "../components/BlogBanner";
-import axios from "axios";
 import { IPosts } from "../Interface/IPosts";
+import { makeRequest } from "../utils/axios";
 
 const PostsSection = () => {
 	const [posts, setPost] = useState<IPosts[]>();
 
 	const fetchPosts = async () => {
-		await axios
-			.get("http://localhost:3000/posts")
-			.then((response) => {
-				setPost(response.data);
-			})
-			.catch((error) => console.log(error));
+		try {
+			const response = await makeRequest.get("posts/");
+			setPost(response.data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	useEffect(() => {

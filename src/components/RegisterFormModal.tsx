@@ -1,8 +1,8 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { makeRequest } from "../utils/axios";
 
 type RegisterFormType = {
 	username: string;
@@ -28,8 +28,8 @@ const RegisterFormModal = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 
 	const onSubmit: SubmitHandler<RegisterFormType> = (data) => {
-		axios
-			.post("http://localhost:3000/user/register", data)
+		makeRequest
+			.post("user/register", data)
 			.then((response) => {
 				if (response.status === 200) {
 					window.location.reload();

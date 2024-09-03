@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import { IPosts } from "../Interface/IPosts";
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Oval } from "react-loader-spinner";
 import { AuthContext } from "../context/authContext";
 import PageNotFound from "../components/PageNotFound";
+import { makeRequest } from "../utils/axios";
 
 type EditPostFormInputs = {
 	title: string;
@@ -20,9 +20,7 @@ const MyPost = () => {
 
 	const fetchBlog = async () => {
 		try {
-			const response = await axios.get(
-				`http://localhost:3000/posts/mypost/${postID}`
-			);
+			const response = await makeRequest.get(`posts/mypost/${postID}`);
 			setMyBlog(response.data);
 		} catch (err) {
 			console.log(err);
@@ -45,10 +43,7 @@ const MyPost = () => {
 	const onSubmit: SubmitHandler<EditPostFormInputs> = async (data) => {
 		setIsLoading(true);
 		try {
-			await axios.patch(
-				`http://localhost:3000/posts/mypost/edit/${postID}`,
-				data
-			);
+			await makeRequest.patch(`posts/mypost/edit/${postID}`, data);
 		} catch (error) {
 			console.log(error);
 		} finally {

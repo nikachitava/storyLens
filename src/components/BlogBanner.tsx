@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 import { BiLike } from "react-icons/bi"; // like stroke
 import { AiFillLike } from "react-icons/ai"; // like fill
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import { makeRequest } from "../utils/axios";
 
 const BlogBanner: React.FC<IBlogCardProps> = ({
 	postID,
@@ -25,9 +25,7 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 	const { isPending, data } = useQuery({
 		queryKey: ["likes", postID],
 		queryFn: async () => {
-			const response = await axios.get(
-				"http://localhost:3000/likes?postID=" + postID
-			);
+			const response = await makeRequest.get("/likes?postID=" + postID);
 			return response.data;
 		},
 	});
@@ -40,11 +38,11 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 		mutationKey,
 		mutationFn: (liked: boolean) => {
 			if (liked) {
-				return axios.delete(
-					`http://localhost:3000/likes?postID=${postID}&userID=${currentUser?.userID}`
+				return makeRequest.delete(
+					`/likes?postID=${postID}&userID=${currentUser?.userID}`
 				);
 			}
-			return axios.post("http://localhost:3000/likes", {
+			return makeRequest.post("/likes", {
 				userID: currentUser?.userID,
 				postID: postID,
 			});
@@ -75,7 +73,7 @@ const BlogBanner: React.FC<IBlogCardProps> = ({
 							{title}
 						</h1>
 						<p className="text-[12px] text-white">
-							{subtitle.substring(0, 30)}.....
+							{subtitle?.substring(0, 30)}.....
 						</p>
 					</div>
 				</div>
