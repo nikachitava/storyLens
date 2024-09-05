@@ -1,30 +1,61 @@
-# React + TypeScript + Vite
+# Story Lens
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Storylens is a full-stack web application built with React.js, Node.js, and MySQL. This project allows users to create their private blog. It includes features such as user authentication, CRUD operations and a responsive UI.
+Its my first full stack projects so I know there are many mistakes. I am sharing this project cause I need feedback for experienced developers to develop my skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+-   [Installation](#installation)
+-   [Features](#features)
+-   [Upcoming updates](#upcomingUpdates)
+-   [Technologies Used](#technologies-used)
+-   [Contributing](#contributing)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository
+   git clone https://github.com/nikachitava/storyLens.git
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. Navigate to the project directory
+   cd storyLens
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Install dependencies for the frontend
+   npm install
+
+4. Run the frontend application
+   npm run dev
+
+## Features
+
+Version 1.0 R.
+
+• User sign up / sign in
+• After authorization user can see other users created posts, leave comment on post or like it.
+• Also user can delete or edit their posts.
+
+## UpcomingUpdates
+
+• Admin Dashboard.
+• Roles based system. (user, moderator, admin)
+• Average statistics about posts.
+• Toggle Theme
+• -- Open to suggestions.
+
+## Technologies Used
+
+• Project is created using ReactJS (vite), Typescript template.
+• TailWindCss
+• NodeJS
+
+## Contributing
+
+Contributions are always welcome! To contribute, please follow these steps:
+
+1. Fork the repository
+2. Create a new branch (git checkout -b feature-name)
+3. Make your changes
+4. Commit your changes (git commit -m 'Add some feature')
+5. Push to the branch (git push origin feature-name)
+6. Open a pull request
