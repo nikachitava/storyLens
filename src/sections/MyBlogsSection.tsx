@@ -70,7 +70,8 @@ const MyBlogsSection = () => {
 								key={post.postID}
 								title={post.title}
 								subtitle={post.content}
-								image={`http://localhost:3000/images/${post.coverImage}`}
+								// image={`http://localhost:3000/images/${post.coverImage}`}
+								image={`https://fastly.picsum.photos/id/951/500/500.jpg?hmac=oBFs-4cE-LhZrfVUmB0SXDHRlvngLb9-51Hry42_uXE`}
 								author={post.author}
 								created_at={post.created_at}
 								onClickEdit={() =>

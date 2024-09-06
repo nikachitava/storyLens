@@ -41,7 +41,8 @@ const MainBlogSection = () => {
 							0,
 							500
 						)}.......`}
-						image={`http://localhost:3000/images/${mainBlog[0].coverImage}`}
+						// image={`http://localhost:3000/images/${mainBlog[0].coverImage}`}
+						image={`https://fastly.picsum.photos/id/951/500/500.jpg?hmac=oBFs-4cE-LhZrfVUmB0SXDHRlvngLb9-51Hry42_uXE`}
 						author={mainBlog[0].author}
 						created_at={mainBlog[0].created_at}
 					/>
