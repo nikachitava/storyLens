@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export const makeRequest = axios.create({
-    baseURL: "http://localhost:3000/",
+    baseURL: "https://story-lens-back-end.vercel.app/",
     withCredentials: true,
   });
