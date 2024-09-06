@@ -5,7 +5,7 @@ import PostsSection from "../sections/PostsSection";
 import MainBlogSection from "../sections/MainBlogSection";
 
 const Home = () => {
-	const { currentUser } = useContext(AuthContext);
+	// const { currentUser } = useContext(AuthContext);
 
 	return (
 		<section className="mt-20 py-10">
@@ -13,7 +13,7 @@ const Home = () => {
 				<Header title={"TODAYS MAIN BLOG"} />
 			</div>
 			<MainBlogSection />
-			{currentUser ? (
+			{/* {currentUser ? (
 				<>
 					<div className="mt-20">
 						<Header
@@ -34,7 +34,16 @@ const Home = () => {
 						FOR MORE BLOGS
 					</h1>
 				</div>
-			)}
+			)} */}
+			<div className="mt-20">
+				<Header
+					title={"TODAYS MAIN BLOG"}
+					subtitle="What is new for you?"
+				/>
+			</div>
+			<div className="mt-3 grid gap-5 lg:grid lg:grid-cols-4">
+				<PostsSection />
+			</div>
 		</section>
 	);
 };
