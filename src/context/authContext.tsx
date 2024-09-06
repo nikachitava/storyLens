@@ -5,11 +5,11 @@ import {
 	ReactNode,
 	useContext,
 } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LoginFormInputs } from "../Interface/LoginFormInputs";
 import { IUser } from "../Interface/IUser";
 import { ModalContext } from "./ModalContext";
+import { makeRequest } from "../utils/axios";
 
 interface AuthContextType {
 	currentUser: IUser | null;
@@ -40,8 +40,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
 	const login = async (data: LoginFormInputs) => {
 		try {
-			await axios
-				.post("http://localhost:3000/user/login", data, {
+			await makeRequest
+				.post("user/login", data, {
 					withCredentials: true,
 				})
 				.then((response) => {
@@ -66,7 +66,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
 	const logout = async () => {
 		try {
-			await axios.post("http://localhost:3000/user/logout", null, {
+			await makeRequest.post("user/logout", null, {
 				withCredentials: true,
 			});
 			setCurrentUser(null);
