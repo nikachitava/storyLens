@@ -73,8 +73,12 @@ const MyBlogsSection = () => {
 								image={`http://localhost:3000/images/${post.coverImage}`}
 								author={post.author}
 								created_at={post.created_at}
-								onClickEdit={() => onClickEdit(post.postID)}
-								onClickDelete={() => onClickDelete(post.postID)}
+								onClickEdit={() =>
+									post.postID && onClickEdit(post.postID)
+								}
+								onClickDelete={() =>
+									post.postID && onClickDelete(post.postID)
+								}
 							/>
 						))
 					) : (
