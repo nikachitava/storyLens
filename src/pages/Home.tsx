@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { AuthContext } from "../context/authContext";
+// import { useContext } from "react";
+// import { AuthContext } from "../context/authContext";
 import Header from "../components/Header";
 import PostsSection from "../sections/PostsSection";
 import MainBlogSection from "../sections/MainBlogSection";
